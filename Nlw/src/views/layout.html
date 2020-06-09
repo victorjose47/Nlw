@@ -1,6 +1,5 @@
 <!DOCTYPE html>
 <html lang="pt_br">
-
   <!-- HTML ->
     HyperText
         hiper texto
@@ -9,37 +8,35 @@
     Language
         Linguagem
   -->
-
-
 <head>
   <meta charset="UTF-8"><!--Aceita caracteres especiais...-->
   <meta name="viewport" content="width=device-width, initial-scale=1.0"><!--Este meta é para que o site caixa em tela de vários tamanhos...-->
-  <title>Ecoleta</title>
+  
+  {% block title %}
+    <title>Ecoleta</title>
+  {% endblock title %}
 
   <link href="https://fonts.googleapis.com/css2?family=Roboto&family=Ubuntu:wght@700&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="./styles/main.css">
-  <link rel="stylesheet" href="./styles/home.css">
+
+    <!-- Isso vai buscar nas outras telas para ver se tem algo para subirtiuilo aqui-->
+    {% block styles %}
+    {% endblock styles %}
+
   <link rel="stylesheet" href="./styles/resposive.css">
 
 </head>
 <body>
-    <div id="page-home">
-
-      <div class="content">
-        <header>
-          <img src="/assets/logo.svg" alt="Logomarca">
-          <a href="#"> <span></span> Cadastre um ponto de coleta</a>
-        </header>
-
-        <main>
-          <h1>Seu marketplace de coleta de resíduos</h1>
-      
-          <p>Ajudamos pessoas a encontrarem pontos de coletas de forma eficiênte.</p>
-          <a href="#"><span></span> <strong>Pesquisar pontos de coletas</strong></a>
-          
-        </main>
-      </div>
+    <div id="{{ pageId }}">
+      {% block content %}
+      {% endblock content %}
     </div>
-  
-</body>
+
+    {% block modal %}
+    {% endblock modal %}
+
+    {% block scripts %}
+    {% endblock scripts %}
+
+</body> 
 </html>
